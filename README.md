@@ -20,6 +20,8 @@ Clone the ecore-glsp editor:
 
     git clone https://github.com/eclipse-emfcloud/ecore-glsp.git
 
+> If you only want to run ecore-glsp without installing all needed dependencies on your machine, we would advise to follow the [Docker](#building-and-deploying-via-docker) instructions.
+
 Build server and client with the following build-script. This script also copies the needed server artifacts to the client.
 
     cd ecore-glsp
@@ -75,6 +77,6 @@ The full command in the above example would be:
 
 `docker run -it -p 3000:3000 --rm -v C:\my-workspace:/usr/src/my-workspace ecore-glsp:latest`
 
-Now when the image has started you can go to 'File' > 'Open Workspace...' and browse to /usr/src/my-workspace to open your own workspace. Any change made using ecore-glsp will be visible on your local folder.
+Now when the image has started you can go to 'File' > 'Open Workspace...' and browse to /usr/src/my-workspace to open your own workspace. Any change made using ecore-glsp will be visible in your local folder.
 
 Tip: A shortcut to loading a specific workspace is adding the workspace path to the url. For example: `http://localhost:3000/#/usr/src/my-workspace`.
