@@ -51,7 +51,7 @@ Build the docker image using the following command, where &lt;imagename&gt; and 
 
 `docker build -t <imagename>:<tagname> .`
 
-For example: `docker build -t ecore-glsp .`
+For example: `docker build -t ecore-glsp:latest ./client/`
 
 ### Running in docker
 
@@ -59,6 +59,22 @@ When the docker image is build, you can start the container using the following 
 
 `docker run -it -p 3000:3000 --rm <imagename>:<tagname>`
 
-For example: `docker run -it -p 3000:3000 --rm ecore-glsp`
+For example: `docker run -it -p 3000:3000 --rm ecore-glsp:latest`
 
 After that you should be able to connect with your browser at http://localhost:3000.
+
+### Working in your local workspace folder
+
+When the above is all working and want to start in your own workspace folder you can mount any folder on your machine in the docker container by adding the following part in the docker command:
+
+`-v <local-path>:<remote-path>`
+
+For example, on Windows, if you want to mount C:\my-workspace on your machine to /usr/src/my-workspace in the docker container it would be: `-v C:\my-workspace:/usr/src/my-workspace`
+
+The full command in the above example would be:
+
+`docker run -it -p 3000:3000 --rm -v C:\my-workspace:/usr/src/my-workspace ecore-glsp:latest`
+
+Now when the image has started you can go to 'File' > 'Open Workspace...' and browse to /usr/src/my-workspace to open your own workspace. Any change made using ecore-glsp will be visible on your local folder.
+
+Tip: A shortcut to loading a specific workspace is adding the workspace path to the url. For example: `http://localhost:3000/#/usr/src/my-workspace`.
